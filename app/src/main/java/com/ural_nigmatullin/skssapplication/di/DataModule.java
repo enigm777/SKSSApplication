@@ -1,6 +1,8 @@
 package com.ural_nigmatullin.skssapplication.di;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.ural_nigmatullin.skssapplication.data.FakeNewsRepository;
+import com.ural_nigmatullin.skssapplication.data.NewsRepository;
 import com.ural_nigmatullin.skssapplication.data.network.SkssApi;
 import com.ural_nigmatullin.skssapplication.domain.NewsRepositoryInterface;
 
@@ -28,7 +30,7 @@ public class DataModule {
     @Singleton
     @Provides
     NewsRepositoryInterface provideNewsRepository() {
-        return new FakeNewsRepository();
+        return new NewsRepository();
     }
 
     /**
@@ -42,6 +44,7 @@ public class DataModule {
         return new Retrofit.Builder()
                 .baseUrl(SKSS_API_BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
 
