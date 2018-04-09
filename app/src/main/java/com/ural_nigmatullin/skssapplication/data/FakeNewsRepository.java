@@ -3,9 +3,10 @@ package com.ural_nigmatullin.skssapplication.data;
 import com.ural_nigmatullin.skssapplication.domain.NewsRepositoryInterface;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+
+import io.reactivex.Single;
 
 /**
  * Стабовый репозиторий новостей
@@ -52,8 +53,8 @@ public class FakeNewsRepository implements NewsRepositoryInterface {
     };
 
     @Override
-    public List<NewsItem> getNews() {
-        return Collections.unmodifiableList(generateRandomNews());
+    public Single<List<NewsItem>> getNews() {
+        return Single.just(generateRandomNews());
     }
 
     private List<NewsItem> generateRandomNews(){

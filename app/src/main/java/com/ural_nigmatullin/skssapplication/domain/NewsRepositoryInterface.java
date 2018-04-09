@@ -4,6 +4,8 @@ import com.ural_nigmatullin.skssapplication.data.NewsItem;
 
 import java.util.List;
 
+import io.reactivex.Single;
+
 /**
  * Интерфейс репозитория новостей с главной страницы сайта
  *
@@ -12,5 +14,5 @@ import java.util.List;
 
 public interface NewsRepositoryInterface {
 
-    List<NewsItem> getNews();
+    Single<List<NewsItem>> getNews();
 }

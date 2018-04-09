@@ -11,16 +11,18 @@ import android.view.ViewGroup;
 
 import com.ural_nigmatullin.skssapplication.R;
 import com.ural_nigmatullin.skssapplication.SkssApplication;
-import com.ural_nigmatullin.skssapplication.data.FakeNewsRepository;
 import com.ural_nigmatullin.skssapplication.data.NewsItem;
-import com.ural_nigmatullin.skssapplication.domain.NewsListInteractor;
 import com.ural_nigmatullin.skssapplication.domain.NewsListInteractorInterface;
-import com.ural_nigmatullin.skssapplication.domain.NewsRepositoryInterface;
 import com.ural_nigmatullin.skssapplication.ui.adapters.NewsListAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by enigm on 02/04/2018.
@@ -29,6 +31,7 @@ import javax.inject.Inject;
 public class NewsListFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
+    private NewsListAdapter mNewsListAdapter;
 
     @Inject
     NewsListInteractorInterface mNewsListInteractor;
@@ -48,8 +51,17 @@ public class NewsListFragment extends Fragment {
         mRecyclerView.setLayoutManager(layoutManager);
 
         // adding adapter to recyclerview
-        NewsListAdapter newsListAdapter = new NewsListAdapter(mNewsListInteractor.getNewsList());
-        mRecyclerView.setAdapter(newsListAdapter);
+        mNewsListAdapter = new NewsListAdapter(new ArrayList<>());
+        mRecyclerView.setAdapter(mNewsListAdapter);
+
+        new CompositeDisposable(mNewsListInteractor.getNewsList()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(this::handleNewsListLoaded));
         return fragmentView;
+    }
+
+    private void handleNewsListLoaded(List<NewsItem> newsItems){
+        mNewsListAdapter.setNewsItemList(newsItems);
     }
 }
