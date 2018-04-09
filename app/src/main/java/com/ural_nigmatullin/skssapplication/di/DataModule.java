@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 public class DataModule {
 
-    private static final String SKSS_API_BASE_URL = "http://enigm.ru:32322/ru.enigm.skss.server-1.0-SNAPSHOT";
+    private static final String SKSS_API_BASE_URL = "http://enigm.ru:32322/ru.enigm.skss.server-1.0-SNAPSHOT/";
 
     /**
      * Provide news repository
@@ -29,8 +29,8 @@ public class DataModule {
      */
     @Singleton
     @Provides
-    NewsRepositoryInterface provideNewsRepository() {
-        return new NewsRepository();
+    NewsRepositoryInterface provideNewsRepository(SkssApi skssApi) {
+        return new NewsRepository(skssApi);
     }
 
     /**

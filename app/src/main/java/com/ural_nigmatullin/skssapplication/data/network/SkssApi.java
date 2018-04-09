@@ -12,6 +12,6 @@ import retrofit2.http.GET;
 
 public interface SkssApi {
 
-    @GET("/news/list")
+    @GET("news/list")
     Observable<List<NewsItemModel>> getNewsList();
 }

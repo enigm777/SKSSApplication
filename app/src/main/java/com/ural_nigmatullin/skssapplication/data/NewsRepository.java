@@ -21,12 +21,11 @@ import retrofit2.Retrofit;
 public class NewsRepository implements NewsRepositoryInterface {
 
     private List<NewsItem> mNewsList;
+    private SkssApi mSkssApi;
 
-    @Inject
-    SkssApi mSkssApi;
-
-    @Inject
-    Retrofit mRetrofit;
+    public NewsRepository(SkssApi skssApi){
+        mSkssApi = skssApi;
+    }
 
     @Override
     public List<NewsItem> getNews() {
