@@ -3,6 +3,7 @@ package com.ural_nigmatullin.skssapplication.ui.views;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -54,6 +55,12 @@ public class NewsListFragment extends Fragment {
         mNewsListAdapter = new NewsListAdapter(new ArrayList<>());
         mRecyclerView.setAdapter(mNewsListAdapter);
 
+        // item decoration
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+                layoutManager.getOrientation());
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
+
+        // retrieving news list
         new CompositeDisposable(mNewsListInteractor.getNewsList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
