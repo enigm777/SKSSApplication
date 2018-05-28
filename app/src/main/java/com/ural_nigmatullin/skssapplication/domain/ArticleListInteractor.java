@@ -7,7 +7,7 @@ import java.util.List;
 import io.reactivex.Single;
 
 /**
- * Интерактор получения списка новостей на главной
+ * Интерактор получения статей
  * <p>
  * Created by enigm on 31/03/2018.
  */
@@ -16,10 +16,10 @@ public class ArticleListInteractor implements ArticleListInteractorInterface {
     /**
      * Репозиторий новостей
      */
-    private ArticleRepositoryInterface mNewsRepository;
+    private ArticleRepositoryInterface mArticleRepository;
 
-    public ArticleListInteractor(ArticleRepositoryInterface newsRepository) {
-        mNewsRepository = newsRepository;
+    public ArticleListInteractor(ArticleRepositoryInterface articleRepository) {
+        mArticleRepository = articleRepository;
     }
 
     /**
@@ -27,7 +27,7 @@ public class ArticleListInteractor implements ArticleListInteractorInterface {
      */
     @Override
     public Single<List<ArticleItem>> getNewsList() {
-        return mNewsRepository.getNews();
+        return mArticleRepository.getNews();
     }
 
     /**
@@ -35,7 +35,7 @@ public class ArticleListInteractor implements ArticleListInteractorInterface {
      */
     @Override
     public Single<List<ArticleItem>> getAboutList() {
-        return null;
+        return mArticleRepository.getAboutArticleList();
     }
 
     /**
@@ -43,7 +43,7 @@ public class ArticleListInteractor implements ArticleListInteractorInterface {
      */
     @Override
     public Single<List<ArticleItem>> getAbiturientList() {
-        return null;
+        return mArticleRepository.getAbiturientArticleList();
     }
 
     /**
@@ -51,7 +51,7 @@ public class ArticleListInteractor implements ArticleListInteractorInterface {
      */
     @Override
     public Single<List<ArticleItem>> getStudentList() {
-        return null;
+        return mArticleRepository.getStudentArticleList();
     }
 
     /**
@@ -59,7 +59,7 @@ public class ArticleListInteractor implements ArticleListInteractorInterface {
      */
     @Override
     public Single<List<ArticleItem>> getVospitList() {
-        return null;
+        return mArticleRepository.getVospitArticleList();
     }
 
     /**
@@ -67,6 +67,6 @@ public class ArticleListInteractor implements ArticleListInteractorInterface {
      */
     @Override
     public Single<List<ArticleItem>> getUmrList() {
-        return null;
+        return mArticleRepository.getUmrArticleList();
     }
 }
