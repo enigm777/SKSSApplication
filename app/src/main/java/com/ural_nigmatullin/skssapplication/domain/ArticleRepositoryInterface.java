@@ -1,6 +1,6 @@
 package com.ural_nigmatullin.skssapplication.domain;
 
-import com.ural_nigmatullin.skssapplication.data.NewsItem;
+import com.ural_nigmatullin.skssapplication.data.ArticleItem;
 
 import java.util.List;
 
@@ -12,12 +12,12 @@ import io.reactivex.Single;
  * Created by enigm on 31/03/2018.
  */
 
-public interface NewsRepositoryInterface {
+public interface ArticleRepositoryInterface {
 
     /**
      * Вернуть список новостей
      *
      * @return список новостей
      */
-    Single<List<NewsItem>> getNews();
+    Single<List<ArticleItem>> getNews();
 }

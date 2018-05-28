@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ural_nigmatullin.skssapplication.R;
-import com.ural_nigmatullin.skssapplication.data.NewsItem;
+import com.ural_nigmatullin.skssapplication.data.ArticleItem;
 
 import java.util.List;
 
@@ -22,9 +22,9 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsLi
     /**
      * Список новостей
      */
-    private List<NewsItem> mNewsItemList;
+    private List<ArticleItem> mNewsItemList;
 
-    public NewsListAdapter(List<NewsItem> newsItemList) {
+    public NewsListAdapter(List<ArticleItem> newsItemList) {
         mNewsItemList = newsItemList;
     }
 
@@ -43,8 +43,8 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsLi
      */
     @Override
     public void onBindViewHolder(NewsListItemViewHolder holder, int position) {
-        holder.mNewsItemTitleTextView.setText(mNewsItemList.get(position).getNewsItemTitle());
-        holder.mNewsItemContentTextView.setText(mNewsItemList.get(position).getNewsItemContent());
+        holder.mNewsItemTitleTextView.setText(mNewsItemList.get(position).getArticleItemTitle());
+        holder.mNewsItemContentTextView.setText(mNewsItemList.get(position).getArticleItemContent());
     }
 
     /**
@@ -52,7 +52,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsLi
      *
      * @param newsItemList
      */
-    public void setNewsItemList(List<NewsItem> newsItemList) {
+    public void setNewsItemList(List<ArticleItem> newsItemList) {
         mNewsItemList = newsItemList;
         notifyDataSetChanged();
     }

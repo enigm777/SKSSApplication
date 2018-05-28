@@ -1,6 +1,6 @@
 package com.ural_nigmatullin.skssapplication.data;
 
-import com.ural_nigmatullin.skssapplication.domain.NewsRepositoryInterface;
+import com.ural_nigmatullin.skssapplication.domain.ArticleRepositoryInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import io.reactivex.Single;
  * Стабовый репозиторий новостей
  * Created by enigm on 31/03/2018.
  */
-public class FakeNewsRepository implements NewsRepositoryInterface {
+public class FakeArticleRepository implements ArticleRepositoryInterface {
 
     private static final String[] NEWS_TITLES = {
             "Победитель Республиканской олимпиады по общеобразовательной дисциплине «История»",
@@ -52,12 +52,12 @@ public class FakeNewsRepository implements NewsRepositoryInterface {
     };
 
     @Override
-    public Single<List<NewsItem>> getNews() {
+    public Single<List<ArticleItem>> getNews() {
         return Single.just(generateRandomNews());
     }
 
-    private List<NewsItem> generateRandomNews(){
-        ArrayList<NewsItem> newsItems = new ArrayList<>();
+    private List<ArticleItem> generateRandomNews(){
+        ArrayList<ArticleItem> newsItems = new ArrayList<>();
         Random random = new Random();
 
         for (int i = 0; i < 5; i++){
@@ -65,7 +65,7 @@ public class FakeNewsRepository implements NewsRepositoryInterface {
             String newsItemContent = NEWS_CONTENTS[random.nextInt(NEWS_CONTENTS.length)];
             String newsItemImageUrl = NEWS_IMAGE_URLS[random.nextInt(NEWS_IMAGE_URLS.length)];
 
-            newsItems.add(new NewsItem(newsItemTitle, newsItemImageUrl, newsItemContent));
+            newsItems.add(new ArticleItem(newsItemTitle, newsItemImageUrl, newsItemContent));
         }
 
         return newsItems;

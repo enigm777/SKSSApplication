@@ -1,10 +1,9 @@
 package com.ural_nigmatullin.skssapplication.di;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.ural_nigmatullin.skssapplication.data.FakeNewsRepository;
-import com.ural_nigmatullin.skssapplication.data.NewsRepository;
+import com.ural_nigmatullin.skssapplication.data.ArticleRepository;
 import com.ural_nigmatullin.skssapplication.data.network.SkssApi;
-import com.ural_nigmatullin.skssapplication.domain.NewsRepositoryInterface;
+import com.ural_nigmatullin.skssapplication.domain.ArticleRepositoryInterface;
 
 import javax.inject.Singleton;
 
@@ -30,8 +29,8 @@ public class DataModule {
      */
     @Singleton
     @Provides
-    NewsRepositoryInterface provideNewsRepository(SkssApi skssApi) {
-        return new NewsRepository(skssApi);
+    ArticleRepositoryInterface provideNewsRepository(SkssApi skssApi) {
+        return new ArticleRepository(skssApi);
     }
 
     /**

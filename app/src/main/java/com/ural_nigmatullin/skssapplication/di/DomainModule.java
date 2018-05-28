@@ -1,8 +1,8 @@
 package com.ural_nigmatullin.skssapplication.di;
 
-import com.ural_nigmatullin.skssapplication.domain.NewsListInteractor;
-import com.ural_nigmatullin.skssapplication.domain.NewsListInteractorInterface;
-import com.ural_nigmatullin.skssapplication.domain.NewsRepositoryInterface;
+import com.ural_nigmatullin.skssapplication.domain.ArticleListInteractor;
+import com.ural_nigmatullin.skssapplication.domain.ArticleListInteractorInterface;
+import com.ural_nigmatullin.skssapplication.domain.ArticleRepositoryInterface;
 
 import javax.inject.Singleton;
 
@@ -25,7 +25,7 @@ public class DomainModule {
      */
     @Singleton
     @Provides
-    NewsListInteractorInterface provideNewsListInteractor(NewsRepositoryInterface newsRepository) {
-        return new NewsListInteractor(newsRepository);
+    ArticleListInteractorInterface provideNewsListInteractor(ArticleRepositoryInterface newsRepository) {
+        return new ArticleListInteractor(newsRepository);
     }
 }

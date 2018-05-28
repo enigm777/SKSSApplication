@@ -12,13 +12,12 @@ import android.view.ViewGroup;
 
 import com.ural_nigmatullin.skssapplication.R;
 import com.ural_nigmatullin.skssapplication.SkssApplication;
-import com.ural_nigmatullin.skssapplication.data.NewsItem;
-import com.ural_nigmatullin.skssapplication.domain.NewsListInteractorInterface;
+import com.ural_nigmatullin.skssapplication.data.ArticleItem;
+import com.ural_nigmatullin.skssapplication.domain.ArticleListInteractorInterface;
 import com.ural_nigmatullin.skssapplication.ui.adapters.NewsListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -36,7 +35,7 @@ public class NewsListFragment extends Fragment {
     private NewsListAdapter mNewsListAdapter;
 
     @Inject
-    NewsListInteractorInterface mNewsListInteractor;
+    ArticleListInteractorInterface mNewsListInteractor;
 
     @Nullable
     @Override
@@ -69,7 +68,7 @@ public class NewsListFragment extends Fragment {
         return fragmentView;
     }
 
-    private void handleNewsListLoaded(List<NewsItem> newsItems){
+    private void handleNewsListLoaded(List<ArticleItem> newsItems){
         mNewsListAdapter.setNewsItemList(newsItems);
     }
 }

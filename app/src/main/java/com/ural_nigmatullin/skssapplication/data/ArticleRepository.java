@@ -1,7 +1,7 @@
 package com.ural_nigmatullin.skssapplication.data;
 
 import com.ural_nigmatullin.skssapplication.data.network.SkssApi;
-import com.ural_nigmatullin.skssapplication.domain.NewsRepositoryInterface;
+import com.ural_nigmatullin.skssapplication.domain.ArticleRepositoryInterface;
 
 import java.util.List;
 
@@ -12,14 +12,14 @@ import io.reactivex.Single;
  *
  * Created by enigm on 08/04/2018.
  */
-public class NewsRepository implements NewsRepositoryInterface {
+public class ArticleRepository implements ArticleRepositoryInterface {
 
     /**
      * Интерфейс сервиса подгрузки данных из сети (ретрофит)
      */
     private SkssApi mSkssApi;
 
-    public NewsRepository(SkssApi skssApi) {
+    public ArticleRepository(SkssApi skssApi) {
         mSkssApi = skssApi;
     }
 
@@ -27,10 +27,10 @@ public class NewsRepository implements NewsRepositoryInterface {
      * {@inheritDoc}
      */
     @Override
-    public Single<List<NewsItem>> getNews() {
+    public Single<List<ArticleItem>> getNews() {
         return mSkssApi.getNewsList()
                 .flatMapIterable(newsItemModels -> newsItemModels)
-                .map(newsItemModel -> new NewsItem(newsItemModel.getTitle(), null, newsItemModel.getContent()))
+                .map(newsItemModel -> new ArticleItem(newsItemModel.getTitle(), null, newsItemModel.getContent()))
                 .toList();
     }
 }

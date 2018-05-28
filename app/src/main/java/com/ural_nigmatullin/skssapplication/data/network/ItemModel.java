@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
  *
  * Created by enigm on 08/04/2018.
  */
-public class NewsItemModel {
+public class ItemModel {
 
     @SerializedName("title")
     @Expose
@@ -39,7 +39,7 @@ public class NewsItemModel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        NewsItemModel that = (NewsItemModel) o;
+        ItemModel that = (ItemModel) o;
 
         if (mTitle != null ? !mTitle.equals(that.mTitle) : that.mTitle != null) return false;
         return mContent != null ? mContent.equals(that.mContent) : that.mContent == null;
@@ -54,7 +54,7 @@ public class NewsItemModel {
 
     @Override
     public String toString() {
-        return "NewsItemModel{" +
+        return "ItemModel{" +
                 "mTitle='" + mTitle + '\'' +
                 ", mContent='" + mContent + '\'' +
                 '}';

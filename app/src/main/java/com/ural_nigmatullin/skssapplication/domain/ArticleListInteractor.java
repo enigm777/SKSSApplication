@@ -1,6 +1,6 @@
 package com.ural_nigmatullin.skssapplication.domain;
 
-import com.ural_nigmatullin.skssapplication.data.NewsItem;
+import com.ural_nigmatullin.skssapplication.data.ArticleItem;
 
 import java.util.List;
 
@@ -11,14 +11,14 @@ import io.reactivex.Single;
  * <p>
  * Created by enigm on 31/03/2018.
  */
-public class NewsListInteractor implements NewsListInteractorInterface {
+public class ArticleListInteractor implements ArticleListInteractorInterface {
 
     /**
      * Репозиторий новостей
      */
-    private NewsRepositoryInterface mNewsRepository;
+    private ArticleRepositoryInterface mNewsRepository;
 
-    public NewsListInteractor(NewsRepositoryInterface newsRepository) {
+    public ArticleListInteractor(ArticleRepositoryInterface newsRepository) {
         mNewsRepository = newsRepository;
     }
 
@@ -26,7 +26,7 @@ public class NewsListInteractor implements NewsListInteractorInterface {
      * {@inheritDoc}
      */
     @Override
-    public Single<List<NewsItem>> getNewsList() {
+    public Single<List<ArticleItem>> getNewsList() {
         return mNewsRepository.getNews();
     }
 }
