@@ -29,4 +29,44 @@ public class ArticleListInteractor implements ArticleListInteractorInterface {
     public Single<List<ArticleItem>> getNewsList() {
         return mNewsRepository.getNews();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Single<List<ArticleItem>> getAboutList() {
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Single<List<ArticleItem>> getAbiturientList() {
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Single<List<ArticleItem>> getStudentList() {
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Single<List<ArticleItem>> getVospitList() {
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Single<List<ArticleItem>> getUmrList() {
+        return null;
+    }
 }
