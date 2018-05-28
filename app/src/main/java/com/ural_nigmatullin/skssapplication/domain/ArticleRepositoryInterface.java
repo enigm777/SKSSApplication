@@ -20,4 +20,39 @@ public interface ArticleRepositoryInterface {
      * @return список новостей
      */
     Single<List<ArticleItem>> getNews();
+
+    /**
+     * Получить список статей для меню "О колледже"
+     *
+     * @return список статей
+     */
+    Single<List<ArticleItem>> getAboutArticleList();
+
+    /**
+     * Получить список статей для меню "Абитуриенту"
+     *
+     * @return список статей
+     */
+    Single<List<ArticleItem>> getAbiturientArticleList();
+
+    /**
+     * Получить список статей для меню "Студенту"
+     *
+     * @return список статей
+     */
+    Single<List<ArticleItem>> getStudentArticleList();
+
+    /**
+     * Получить список статей для меню "Воспитательная работа"
+     *
+     * @return список статей
+     */
+    Single<List<ArticleItem>> getVospitArticleList();
+
+    /**
+     * Получить список статей для меню "Воспитательная работа"
+     *
+     * @return список статей
+     */
+    Single<List<ArticleItem>> getUmrArticleList();
 }

@@ -12,7 +12,7 @@ import io.reactivex.Single;
  * Стабовый репозиторий новостей
  * Created by enigm on 31/03/2018.
  */
-public class FakeArticleRepository implements ArticleRepositoryInterface {
+public abstract class FakeArticleRepository implements ArticleRepositoryInterface {
 
     private static final String[] NEWS_TITLES = {
             "Победитель Республиканской олимпиады по общеобразовательной дисциплине «История»",
