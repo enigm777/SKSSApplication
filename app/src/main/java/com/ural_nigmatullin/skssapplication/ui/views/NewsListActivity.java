@@ -12,7 +12,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ural_nigmatullin.skssapplication.R;
@@ -70,15 +69,15 @@ public class NewsListActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_about) {
-            // Handle the camera action
+            // меню "О колледже"
         } else if (id == R.id.nav_abiturient) {
-
+            // меню "Абитуриенту"
         } else if (id == R.id.nav_student) {
-
+            // меню "Студенту"
         } else if (id == R.id.nav_vospit) {
-
+            // меню "Воспитательная работа"
         } else if (id == R.id.nav_umr) {
-
+            // меню "Учебно-методическая работа"
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
