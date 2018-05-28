@@ -7,9 +7,10 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 /**
+ * Компонент для предоставления зависимостей
+ *
  * @author Урал Нигматуллин
  */
-
 @Singleton
 @Component(modules = {DataModule.class, DomainModule.class})
 public interface ApplicationComponent {

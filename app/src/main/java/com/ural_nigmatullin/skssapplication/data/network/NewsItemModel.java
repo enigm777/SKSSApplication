@@ -4,9 +4,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
+ * Модель новости для главной
+ *
  * Created by enigm on 08/04/2018.
  */
-
 public class NewsItemModel {
 
     @SerializedName("title")

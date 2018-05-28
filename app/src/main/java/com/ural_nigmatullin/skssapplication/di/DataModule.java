@@ -14,9 +14,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
+ * Модуль для разрешения зависимостей слоя данных
+ *
  * @author Урал Нигматуллин
  */
-
 @Module
 public class DataModule {
 

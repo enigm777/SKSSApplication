@@ -18,6 +18,7 @@ import com.ural_nigmatullin.skssapplication.ui.adapters.NewsListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 

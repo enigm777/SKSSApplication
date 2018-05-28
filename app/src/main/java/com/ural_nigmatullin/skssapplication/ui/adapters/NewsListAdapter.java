@@ -13,12 +13,15 @@ import com.ural_nigmatullin.skssapplication.data.NewsItem;
 import java.util.List;
 
 /**
+ * Адаптер списка новостей на главной
+ * <p>
  * Created by enigm on 02/04/2018.
  */
-
 public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsListItemViewHolder> {
 
-
+    /**
+     * Список новостей
+     */
     private List<NewsItem> mNewsItemList;
 
     public NewsListAdapter(List<NewsItem> newsItemList) {
@@ -32,6 +35,12 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsLi
         return new NewsListItemViewHolder(view);
     }
 
+    /**
+     * Вызывается при привязке холдера к позиции в списке
+     *
+     * @param holder   контейнер новости
+     * @param position номер позиции в списке
+     */
     @Override
     public void onBindViewHolder(NewsListItemViewHolder holder, int position) {
         holder.mNewsItemTitleTextView.setText(mNewsItemList.get(position).getNewsItemTitle());
@@ -48,15 +57,33 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsLi
         notifyDataSetChanged();
     }
 
+    /**
+     * Возвращает количество элементов в списке
+     * нужно чтобы понять сколько холдеров понадобится адаптеру
+     *
+     * @return количество элементов в списке
+     */
     @Override
     public int getItemCount() {
         return mNewsItemList.size();
     }
 
+    /**
+     * ViewHolder новости на главной
+     */
     static class NewsListItemViewHolder extends RecyclerView.ViewHolder {
 
+        /**
+         * Заголовок новости
+         */
         final TextView mNewsItemTitleTextView;
+        /**
+         * КДПВ новости
+         */
         final ImageView mNewsItemImageView;
+        /**
+         * Текст новости
+         */
         final TextView mNewsItemContentTextView;
 
         public NewsListItemViewHolder(View view) {

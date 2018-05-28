@@ -10,9 +10,10 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
+ * Модуль для разрешения зависимостей слоя бизнес логики
+ *
  * @author Урал Нигматуллин
  */
-
 @Module
 public class DomainModule {
 

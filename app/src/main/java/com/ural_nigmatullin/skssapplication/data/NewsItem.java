@@ -4,13 +4,14 @@ package com.ural_nigmatullin.skssapplication.data;
  * Элемент списка новостей
  * Created by enigm on 31/03/2018.
  */
-
 public class NewsItem {
 
     // Заголовок новости
     String mNewsItemTitle;
+
     // Ссылка на КДПВ новости
     String mNewsItemImageUrl;
+
     // Собственно сам текст новости
     String mNewsItemContent;
 

@@ -12,7 +12,6 @@ import io.reactivex.Single;
  * Стабовый репозиторий новостей
  * Created by enigm on 31/03/2018.
  */
-
 public class FakeNewsRepository implements NewsRepositoryInterface {
 
     private static final String[] NEWS_TITLES = {
