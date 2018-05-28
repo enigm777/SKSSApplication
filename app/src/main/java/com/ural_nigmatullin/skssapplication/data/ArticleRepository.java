@@ -29,7 +29,9 @@ public class ArticleRepository implements ArticleRepositoryInterface {
     @Override
     public Single<List<ArticleItem>> getNews() {
         return mSkssApi.getNewsList()
-                .flatMapIterable(newsItemModels -> newsItemModels)
+                .flatMapIterable(newsItemModels -> {
+                    return newsItemModels;
+                })
                 .map(newsItemModel -> new ArticleItem(newsItemModel.getTitle(), null, newsItemModel.getContent()))
                 .toList();
     }
@@ -41,7 +43,12 @@ public class ArticleRepository implements ArticleRepositoryInterface {
      */
     @Override
     public Single<List<ArticleItem>> getAboutArticleList() {
-        return null;
+        return mSkssApi.getAboutList()
+                .flatMapIterable(itemModels -> {
+                    return itemModels;
+                })
+                .map(itemModel -> new ArticleItem(itemModel.getTitle(), null, itemModel.getContent()))
+                .toList();
     }
 
     /**
@@ -51,7 +58,12 @@ public class ArticleRepository implements ArticleRepositoryInterface {
      */
     @Override
     public Single<List<ArticleItem>> getAbiturientArticleList() {
-        return null;
+        return mSkssApi.getAbiturientList()
+                .flatMapIterable(itemModels -> {
+                    return itemModels;
+                })
+                .map(itemModel -> new ArticleItem(itemModel.getTitle(), null, itemModel.getContent()))
+                .toList();
     }
 
     /**
@@ -61,7 +73,12 @@ public class ArticleRepository implements ArticleRepositoryInterface {
      */
     @Override
     public Single<List<ArticleItem>> getStudentArticleList() {
-        return null;
+        return mSkssApi.getStudentList()
+                .flatMapIterable(itemModels -> {
+                    return itemModels;
+                })
+                .map(itemModel -> new ArticleItem(itemModel.getTitle(), null, itemModel.getContent()))
+                .toList();
     }
 
     /**
@@ -71,7 +88,12 @@ public class ArticleRepository implements ArticleRepositoryInterface {
      */
     @Override
     public Single<List<ArticleItem>> getVospitArticleList() {
-        return null;
+        return mSkssApi.getVospitList()
+                .flatMapIterable(itemModels -> {
+                    return itemModels;
+                })
+                .map(itemModel -> new ArticleItem(itemModel.getTitle(), null, itemModel.getContent()))
+                .toList();
     }
 
     /**
@@ -81,6 +103,11 @@ public class ArticleRepository implements ArticleRepositoryInterface {
      */
     @Override
     public Single<List<ArticleItem>> getUmrArticleList() {
-        return null;
+        return mSkssApi.getUmrList()
+                .flatMapIterable(itemModels -> {
+                    return itemModels;
+                })
+                .map(itemModel -> new ArticleItem(itemModel.getTitle(), null, itemModel.getContent()))
+                .toList();
     }
 }
