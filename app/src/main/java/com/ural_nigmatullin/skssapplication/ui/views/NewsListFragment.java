@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,11 +65,15 @@ public class NewsListFragment extends Fragment {
         new CompositeDisposable(mNewsListInteractor.getNewsList()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
-                .subscribe(this::handleNewsListLoaded));
+                .subscribe(this::handleNewsListLoaded, this::onError));
         return fragmentView;
     }
 
     private void handleNewsListLoaded(List<ArticleItem> newsItems){
         mNewsListAdapter.setNewsItemList(newsItems);
+    }
+
+    private void onError(Throwable throwable) {
+        Log.e(NewsListFragment.class.getSimpleName(), "Couldn't load news list!!!");
     }
 }
